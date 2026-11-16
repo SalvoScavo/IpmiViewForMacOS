@@ -1,0 +1,15 @@
+services:
+  ipmiview:
+    build:
+      context: .
+    image: ipmiview-x86
+    platform: linux/amd64
+    container_name: ipmiview
+    ports:
+      - "127.0.0.1:6080:6080"
+    volumes:
+      - ./ipmiview:/opt/ipmiview
+    environment:
+      RESOLUTION: 1600x900x24
+    shm_size: 512m
+    restart: "no"
